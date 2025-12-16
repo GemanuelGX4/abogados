@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use App\Providers\URL;
+use Illuminate\Support\Facades\URL;
 
 
 use Illuminate\Support\ServiceProvider;
