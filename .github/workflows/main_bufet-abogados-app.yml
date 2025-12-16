@@ -29,10 +29,17 @@ jobs:
         with:
           files: 'composer.json'
 
-      - name: Run composer install if composer.json exists
+      - name: Install dependencies (production)
         if: steps.check_files.outputs.files_exists == 'true'
-        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
+        run: |
+          composer validate --no-check-publish
+          composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
 
+      - name: Clear Laravel caches
+        run: |
+          php artisan config:clear || true
+          php artisan route:clear || true
+          php artisan view:clear || true
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -67,4 +74,5 @@ jobs:
           app-name: 'bufet-abogados-app'
           slot-name: 'Production'
           package: .
+
           
