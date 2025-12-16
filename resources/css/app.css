@@ -1,0 +1,287 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* ==========================================================================
+   VARIABLES / TEMA
+   ========================================================================== */
+:root {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+    --bg-900: #0b1220;
+    --bg-800: #0f172a;
+    --panel: #0f172a;
+
+    --accent-blue: #2563eb;
+    --accent-blue-600: #1e40af;
+    --accent-gold: #eab308;
+
+    --danger: #dc2626;
+    --success: #16a34a;
+
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+
+    --radius-lg: 12px;
+    --radius-md: 8px;
+
+    --shadow-1: 0 6px 18px rgba(2,6,23,.6);
+    --shadow-2: 0 12px 30px rgba(2,6,23,.7);
+}
+
+/* ==========================================================================
+   RESET / BASE
+   ========================================================================== */
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: radial-gradient(
+        1200px 600px at 10% 0%,
+        var(--bg-800),
+        var(--bg-900)
+    );
+    color: var(--text);
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    font: inherit;
+}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+header {
+    padding: 22px;
+    background: linear-gradient(90deg, #020617, var(--bg-800));
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 48px auto;
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.02),
+        transparent
+    );
+    box-shadow: var(--shadow-2);
+}
+
+/* ==========================================================================
+   TITULOS
+   ========================================================================== */
+.page-title {
+    margin: 0 0 18px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-title::before {
+    content: '';
+    width: 6px;
+    height: 26px;
+    background: linear-gradient(
+        180deg,
+        var(--accent-blue),
+        var(--accent-blue-600)
+    );
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   BOTONES GENERALES
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--shadow-1);
+}
+
+.btn-primary {
+    background: linear-gradient(
+        135deg,
+        var(--accent-blue),
+        var(--accent-blue-600)
+    );
+    color: white;
+}
+
+/* ==========================================================================
+   TABLA
+   ========================================================================== */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 18px;
+}
+
+.law-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+}
+
+.law-table thead {
+    background: linear-gradient(90deg, #020617, #030712);
+}
+
+.law-table th,
+.law-table td {
+    padding: 14px;
+    vertical-align: middle; /* CLAVE */
+}
+
+.law-table th {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: .6px;
+}
+
+.law-table td {
+    border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+.law-table tbody tr:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(37,99,235,.08),
+        transparent
+    );
+}
+
+/* ==========================================================================
+   ACCIONES (SOLUCIÓN DEFINITIVA)
+   ========================================================================== */
+.actions {
+    display: flex;
+    align-items: center;        /* CENTRADO VERTICAL */
+    justify-content: flex-end;  /* DERECHA */
+    gap: 10px;
+    height: 100%;
+}
+
+.action {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.action.edit {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+}
+
+.action.delete {
+    background: linear-gradient(135deg, #dc2626, #7f1d1d);
+    color: white;
+}
+
+/* ==========================================================================
+   ESTADO VACÍO
+   ========================================================================== */
+.empty-row {
+    text-align: center;
+    padding: 28px;
+    color: var(--muted);
+}
+
+/* ==========================================================================
+   ALERTAS
+   ========================================================================== */
+.alert {
+    margin-bottom: 18px;
+    padding: 12px;
+    border-left: 6px solid var(--success);
+    background: rgba(22,163,74,.1);
+    border-radius: 8px;
+    color: #86efac;
+}
+
+/* ==========================================================================
+   RESPONSIVE (MOBILE CARD VIEW)
+   ========================================================================== */
+@media (max-width: 720px) {
+
+    .law-table {
+        min-width: 100%;
+    }
+
+    .law-table thead {
+        display: none;
+    }
+
+    .law-table tbody tr {
+        display: block;
+        background: var(--panel);
+        border-radius: 10px;
+        margin-bottom: 14px;
+        padding: 12px;
+    }
+
+    .law-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        border-bottom: none;
+    }
+
+    .law-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--muted);
+        margin-right: 10px;
+    }
+
+    .actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
