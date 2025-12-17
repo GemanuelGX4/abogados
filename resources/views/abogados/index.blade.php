@@ -4,11 +4,13 @@
 
 @section('content')
 
-<h2 class="page-title">Listado de Abogados</h2>
+<div class="page-header">
+    <h2 class="page-title">Listado de Abogados</h2>
 
-<a href="{{ route('abogados.create') }}" class="btn btn-primary">
-     Nuevo Abogado
-</a>
+    <a href="{{ route('abogados.create') }}" class="btn btn-primary">
+        + Nuevo Abogado
+    </a>
+</div>
 
 <div class="table-responsive">
     <table class="law-table">
@@ -25,7 +27,7 @@
         @forelse($abogados as $abogado)
             <tr>
                 <td data-label="Nombre">
-                    {{ $abogado->nombre }} {{ $abogado->apellido }}
+                    <strong>{{ $abogado->nombre }} {{ $abogado->apellido }}</strong>
                 </td>
 
                 <td data-label="Cédula">
@@ -38,13 +40,16 @@
 
                 <td data-label="Acciones">
                     <div class="actions">
-                        <a href="{{ route('abogados.edit', $abogado) }}" class="action edit">
+                        <a href="{{ route('abogados.edit', $abogado) }}"
+                           class="action edit">
                             Editar
                         </a>
 
-                        <form action="{{ route('abogados.destroy', $abogado) }}" method="POST">
+                        <form action="{{ route('abogados.destroy', $abogado) }}"
+                              method="POST">
                             @csrf
                             @method('DELETE')
+
                             <button type="submit"
                                     class="action delete"
                                     onclick="return confirm('¿Eliminar abogado?')">

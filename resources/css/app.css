@@ -285,3 +285,57 @@ header h1 {
         gap: 8px;
     }
 }
+/* HEADER */
+.app-header {
+    background: linear-gradient(90deg, #020617, #0f172a);
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.logo span {
+    color: var(--accent-gold);
+}
+
+.main-nav a {
+    margin-left: 18px;
+    font-weight: 600;
+    color: var(--text);
+    opacity: .85;
+}
+
+.main-nav a:hover {
+    opacity: 1;
+}
+
+/* PAGE HEADER */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+/* FOOTER */
+.app-footer {
+    margin-top: 60px;
+    padding: 24px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
