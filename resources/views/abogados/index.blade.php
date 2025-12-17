@@ -14,19 +14,21 @@
 
 <div class="table-responsive">
     <table class="law-table">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Cédula</th>
-                <th>Email</th>
-                <th class="text-right">Acciones</th>
-            </tr>
-        </thead>
+       <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th class="text-right">Acciones</th>
+    </tr>
+</thead>
+
 
         <tbody>
         @forelse($abogados as $abogado)
             <tr>
-                <td data-label="Nombre">
+                <td data-label="Nombre Completo">
                     <strong>{{ $abogado->nombre }} {{ $abogado->apellido }}</strong>
                 </td>
 
