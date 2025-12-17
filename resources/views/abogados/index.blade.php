@@ -39,16 +39,14 @@
                 <td data-label="Email">
                     {{ $abogado->email }}
                 </td>
-
                 <td data-label="Telefono">
                     {{ $abogado->telefono }}
                 </td>
-
                 <td data-label="Acciones">
                     <div class="actions">
                         <a href="{{ route('abogados.edit', $abogado) }}"
                            class="action edit">
-                            Editar
+                            ✏️
                         </a>
 
                         <form action="{{ route('abogados.destroy', $abogado) }}"
@@ -59,7 +57,7 @@
                             <button type="submit"
                                     class="action delete"
                                     onclick="return confirm('¿Eliminar abogado?')">
-                                Eliminar
+                                🗑️
                             </button>
                         </form>
                     </div>
