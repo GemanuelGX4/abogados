@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="page-header">
-    <h2 class="page-title">Listado de Abogados de emanuel</h2>
+    <h2 class="page-title">Listado de Abogados de angel 321</h2>
 
     <a href="{{ route('abogados.create') }}" class="btn btn-primary">
         + Nuevo Abogado
