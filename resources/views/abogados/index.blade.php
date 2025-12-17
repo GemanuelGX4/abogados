@@ -38,6 +38,10 @@
                     {{ $abogado->email }}
                 </td>
 
+                <td data-label="Telefono">
+                    {{ $abogado->telefono }}
+                </td>
+
                 <td data-label="Acciones">
                     <div class="actions">
                         <a href="{{ route('abogados.edit', $abogado) }}"
